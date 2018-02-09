@@ -1,0 +1,17 @@
+tools	www.preparetocode.io
+design	http://www.dailyui.co/
+js	https://www.javascript.com/
+script	https://codecombat.com/
+script	https://screeps.com/
+script	https://repl.it/repls/PuzzlingSugaryWrenchbird
+script	http://gamejam.toxicode.fr/
+script	http://www.toxicode.fr/learn
+shell	https://explainshell.com/
+shell	http://overthewire.org/wargames/bandit/bandit7.html
+shell	https://cmdchallenge.com/
+git	https://try.github.io/levels/1/challenges/1
+git	https://learngitbranching.js.org/?demo
+css	https://flukeout.github.io/
+css	http://flexboxfroggy.com/#fr
+css	http://www.flexboxdefense.com/
+css	http://cssgridgarden.com/#fr

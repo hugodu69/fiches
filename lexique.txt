@@ -1,0 +1,54 @@
+Lexique du développeur
+Le vocabulaire du petit scarabée :
+
+un navigateur
+Site dynamique
+site statique
+nom de domaine
+URL
+framework
+SEO
+un serveur
+XML
+algorithme
+ASCI
+BackOﬃce
+Base de donnée
+cache
+cookie
+FAQ
+HTTP/HTTP2
+IMAP
+ping
+ROI
+W3C
+devOps
+Stack
+Pull Request (PR)
+CI/CD
+Veille
+wireframe
+GIT
+TERMINAL
+SSH - 
+NODE.JS
+ES6
+HTML5
+WEBPACK
+REDUX
+FRONT/BACK END
+SOLID
+KISS
+YAGNI
+CRUD
+REST FULL
+API
+JASMINE
+methode SCRUM
+methode KANBAN
+methode KATA
+methode RANDORI
+methode TDD
+methode SPRINT
+
+
