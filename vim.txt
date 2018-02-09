@@ -1,0 +1,32 @@
+i		mode insertion (écrire du texte)
+3iTEXT		ecrira trois fois TEXT
+esc		quitte le mode insertion pour rentrer en mode interactif
+:		mode commande
+.		repete la derniere commande
+0 et $		debut et fin de ligne
+gg et G		aller a la premiere et derniere ligne
+w et b		avancer et reculer le curseur d'un mot
+:w		enregistrer
+:q		quitter
+:wq ou ZZ	enregister et quitter
+:q!		force a quitter
+x		supprime une lettre
+u		annuler
+ctrl r		refaire
+dd		coupe une ligne
+dw		coupe un mot
+d0		coupe du curseur jusqu'au debut de ligne
+d$		coupe du curseur jusqu'a la fin de ligne
+yy		copie la ligne
+p		copie une ligne
+:%y+		copie toutes les lignes DANS LE CLIPBOARD
+v		selectionne avec le deplacement du curseur
+r		remplace une lettre (rs remplace la lettre par s)
+R		mode remplacement (esc pour sortir)
+5G		aller a la ligne 5
+:s/old/new	remplace la 1ere occurence de ancien par nouveau
+:%s/old/new	remplace toutes le occurences
+:set number	ecrit les numeros de lignes
+==		rétablit la bonne indentation pour la ligne
+=G		rétablit la bonne indentation pour toute la page
+:set syntax=ON	active la coloration du texte

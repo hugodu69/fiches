@@ -1,0 +1,15 @@
+ctrl s		bloque l'affichage du terminal
+ctrl q		rétablit la communication avec le terminal
+screen		sudo apt-get install screen pour avoir plusieurs terminals
+- ctrl a |		split vertically
+- ctrl a S		split horizontally
+- ctrl a Q		unsplit all
+- ctrl a X		close current pane
+- ctrl a K		kill current pane
+- ctrl a tab		switch from one window to another
+- ctrl a c		start new terminal (in the new window)
+- ctrl a space		next terminal
+- ctrl a backspace	previous terminal
+- ctrl a ctrl a		flip flop between to terminal
+- ctrl a "		switch between terminal with a list
+- ctrl a A		rename
