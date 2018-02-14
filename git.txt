@@ -1,22 +1,30 @@
 GIT INIT // creates a new Git repository
 GIT STATUS // inspects the contents of the working directory and staging area
 GIT ADD // adds files from the working directory to the staging area
-GIT ADD -A . // the -A ensures even file deletions are included
-GIT RESET <FILENAME> // to remove a file or files from the staging area
-GIT DIFF // shows the difference between the working directory and the staging area
+-GIT ADD -A . // the -A ensures even file deletions are included
+-GIT RESET <FILENAME> // to remove a file or files from the staging area
+-GIT DIFF // shows the difference between the working directory and the staging area
 GIT COMMIT // permanently stores file changes from the staging area in the repository
+
 GIT REMOTE ADD ORIGIN HTTPS://GITHUB.COM/NOMUTILISATEUR/MONPROJET // origin indicate a new place where files will be stored, remote describe origin and indicate that origin is distant, not local but online
-GIT REMOTE -V // lists all distant origins, remotes, your local Git project knows (in other words it lists a Git project's remotes)
-GIT LOG // shows a list of all previous commits
-GIT LOG --SUMMARY // show more informations
-GIT PUSH -U REMOTE_NAME BRANCH_NAME // (git push -u origin master) pushes a local branch to a remote, the -u tells Git to remember the parameters, so that next time we can simply run git push
+-GIT PUSH -U REMOTE_NAME BRANCH_NAME // (git push -u origin master) pushes a local branch to a remote, the -u tells Git to remember the parameters, so that next time we can simply run git push
+
 GIT PUSH // pushes the modifications to the distant repository Github (remote)
-GIT PULL // pull any changes from the remote
-GIT CLONE // creates a local copy of a remote
+
+GIT REMOTE -V // lists all distant origins, remotes, your local Git project knows (in other words it lists a Git project's remotes)
+-GIT REMOTE RM REMOTE_NAME // supprimer un remote
+-GIT PULL // pull any changes from the remote
+-GIT CLONE // creates a local copy of a remote
 GIT BRANCH // lists all a Git project's branches
 GIT BRANCH BRANCH_NAME // creates a new branch
 GIT CHECKOUT BRANCH_NAME // used to switch from one branch to another
-GIT MERGE BRANCH_NAME // used to join file changes from one branch to another
+GIT LOG // shows a list of all previous commits
+GIT LOG --SUMMARY // show more informations
+GIT MERGE BRANCH_NAME // join file changes from branch_name into current branch
 GIT BRANCH -D BRANCH_NAME // deletes the branch specified
-GIT FETCH // fetches work from the remote into the local copy
-GIT MERGE ORIGIN/MASTER // merges origin/master into your local branch
+GIT CHECKOUT COMMIT_NAME // detach head from branch into commit, to move in commits
+GIT CHECKOUT BRANCH_NAME^ // move head one commit upwards
+GIT CHECKOUT BRANCH_NAME~4 // move 4 commits upwards
+GIT CHECKOUT HEAD^ // if head is not on a branch_name but on a commit
+GIT BRANCH -F MASTER HEAD~3 // moves the master branch to 3 parents behind head
+

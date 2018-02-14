@@ -1,5 +1,8 @@
+ctrl c		termine l'action en cours du terminal
 ctrl s		bloque l'affichage du terminal
 ctrl q		rétablit la communication avec le terminal
+ctrl z		stop le travail en cours et le met sur pause
+fg		relance le dernier travail mis sur pause
 screen		sudo apt-get install screen pour avoir plusieurs terminals
 - ctrl a |		split vertically
 - ctrl a S		split horizontally
@@ -13,3 +16,7 @@ screen		sudo apt-get install screen pour avoir plusieurs terminals
 - ctrl a ctrl a		flip flop between to terminal
 - ctrl a "		switch between terminal with a list
 - ctrl a A		rename
+pdftotext	transforme un pdf en un fichier texte
+^		designe le debut d'une ligne
+*		n'importe quel caractere autant de fois que possible
+ls **		montre tous les dossiers et sous-dossiers recursivement
