@@ -1,4 +1,4 @@
-GIT INIT // creates a new Git repository
+GIT INIT // creates a new Git repository"
 GIT STATUS // inspects the contents of the working directory and staging area
 GIT ADD // adds files from the working directory to the staging area
 -GIT ADD -A . // the -A ensures even file deletions are included
@@ -27,4 +27,9 @@ GIT CHECKOUT BRANCH_NAME^ // move head one commit upwards
 GIT CHECKOUT BRANCH_NAME~4 // move 4 commits upwards
 GIT CHECKOUT HEAD^ // if head is not on a branch_name but on a commit
 GIT BRANCH -F MASTER HEAD~3 // moves the master branch to 3 parents behind head
+
+DO NOT AMEND A PUBLIC COMMIT, it will reset the commit the others are working on
+GIT COMMIT --AMEND // do a commit replacing the last one, even if there was nothing to commit
+GIT COMMIT --AMEND --NO-EDIT // do a new commit with new things replacing the last one and keepping the last message
+GIT COMMIT --AMEND -M "MESSAGE" // do a new commit that replace the last one with the same content but a new message
 

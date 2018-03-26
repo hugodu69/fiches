@@ -1,6 +1,8 @@
 tools	www.preparetocode.io
 design	http://www.dailyui.co/
 js	https://www.javascript.com/
+js	https://github.com/mrdavidlaing/javascript-koans
+js	http://exercism.io/
 script	https://codecombat.com/
 script	https://screeps.com/
 script	https://repl.it/repls/PuzzlingSugaryWrenchbird
