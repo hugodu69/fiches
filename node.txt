@@ -150,5 +150,8 @@ app.set("view engine", "pug")
 -----------------------------------------------
 -----------------------------------------------
 
-express generator ===> creer le contenu de base automatiquement
-bodyparser        ===> envois les informations d'un formulaire à mongoose
+**express generator** creer le contenu de base automatiquement
+**bodyparser** envois les informations d'un formulaire à mongoose
+
+
+**ngrok https://nrgok.com** pour heberger le site en ligne pendant quelques heures pour le tester
