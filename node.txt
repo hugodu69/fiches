@@ -1,0 +1,154 @@
+take node_login
+npm init -y
+npm i express backpack-core mongoose volleyball dotenv babel-preset-stage-3 pug passport bcrypt
+
+**node_login/package.json**
+remplacer    "test": "echo \"Error: no test specified\" && exit 1"
+par "start": "backpack"
+
+**node_login**
+take src
+touch index.js
+
+**node_login**
+npm start		//demare backpack et genere build/
+
+**node_login**
+touch .env .babelrc
+
+**node_login/.babelrc**
+{
+	"presets": [
+		"backpack-core/babel",
+		"stage-3"
+	]
+}
+
+**node_login**
+mongod
+(il va peut-être falloir creer le fichier db dans le dossier data a la racine "sudo mkdir -p /data/db" -p pour creer un fichier dans un dossier et aussi donner tous les droits a db "sudo chmod 777 /data/db")
+
+**node_login/.env**
+SERVER_PORT=3000
+DBUrl = "mongodb://localhost/users_db"
+
+**node_login/src/index.js**
+import "dotenv/config";
+import express from "express";
+import volleyball from "volleyball";
+import mongoose from "mongoose";
+import passport from "passport";
+import bcrypt from "bcrypt";
+
+const app = express();
+const {SERVER_PORT, DBUrl} = process.env;
+const url = DBUrl;
+const options = {promiseLibrary:Promise}
+
+mongoose.connect(url, options);
+mongoose.connection.on("connected", () => {
+	console.log("the mongo is working 27017")
+})
+
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+app.use(volleyball);
+
+app.listen(SERVER_PORT, () => {
+	console.log(`server is listening port... ${SERVER_PORT}`)
+});
+
+app.get('/', (req,res)=>{
+	res.send('life is good with Hajar')
+})
+
+**node_login**
+mkdir public src/models src/routes src/views
+
+**node_login/src/models/user.js**
+import mongoose from "mongoose";
+const Schema = mongoose.Schema;
+const userSchema = new Schema({
+	name: {type:String, required:true},
+	email: {type:String, required:true},
+	username: {type:String, required:true},
+	password: {type:String, required:true},
+})
+
+const User = mongoose.model("User", userSchema);
+export {User};
+
+**node_login/src/routes/routes.js**
+import express from "express";
+import {User} from "../models/user";
+
+const userRouter = express.Router();
+
+userRouter.post("/new_user", (req,res)=>{
+	let newUser = new User(req.body)
+	newUser.save((err,user)=>{
+		if(err) res.send(err)
+		res.json(user)
+	})
+})
+
+export {userRouter};
+
+**node_login/src/index.js**
+ajouter :
+import {userRouter} from "./routes/routes";
+et
+app.use("/users", userRouter)	//utiliser userRouter pour les url /users
+
+**node_login/src/views**
+touch layout.pug user_add.pug
+
+**node_login/src/views/layout.pug**
+doctype html
+html
+	head
+		title
+		link(href="/css/")
+
+	body
+		h1 formulaire
+		block content
+
+**node_login/src/views/user_add.pug**
+extends layout
+block content
+	h2 sign in
+
+	form(action="/users/new_user", method="post")
+		div
+			h5 name
+			input(type="text", name="name", placeholder="enter name")
+			input(type="text", name="email", placeholder="enter email")
+			input(type="text", name="username", placeholder="enter username")
+			input(type="password", name="password", placeholder="enter password")
+			input(type="password", name="confirm", placeholder="confirm password")
+		div
+			h5 validate
+			input(type="submit", value="enter")
+
+**node_login/src/routes/routes.js**
+ajouter
+userRouter.get("/new_user", (req, res)=>{
+	res.render("user_add")
+})
+
+**node_login/src/index.js**
+ajouter
+import path from "path";
+et
+app.use(express.static(path.join(__dirname+"/public")))
+app.set("views", path.join(__dirname + "/views"))
+app.set("view engine", "pug")
+
+
+
+-----------------------------------------------
+-----------------------------------------------
+
+express generator ===> creer le contenu de base automatiquement
+bodyparser        ===> envois les informations d'un formulaire à mongoose

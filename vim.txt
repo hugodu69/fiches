@@ -1,67 +1,116 @@
-i		mode insertion (écrire du texte)
-3iTEXT		ecrira trois fois TEXT
-esc		quitte le mode insertion pour rentrer en mode interactif
-:		mode commande
-.		repete la derniere commande
-0 et $		debut et fin de ligne
-gg et G		aller a la premiere et derniere ligne
-w et b		avancer et reculer le curseur d'un mot
-:w		enregistrer
-:q		quitter
-:wq ou ZZ	enregister et quitter
-:q!		force a quitter
-x		supprime une lettre en mode interactif
-u		annuler en mode interactif
-ctrl r		refaire en mode interactif
-ctrl n		auto-completion en mode interactif
-dd		coupe une ligne en mode interactif
-dw		coupe un mot en mode interactif
-d0		coupe du curseur jusqu'au debut de ligne en mode interactif
-d$		coupe du curseur jusqu'a la fin de ligne en mode interactif
-yy		copie la ligne en mode interactif
-p		copie une ligne en mode interactif
-ctrl r *	copie depuis le clipboard en mode insertion
-:%y+		copie toutes les lignes DANS LE CLIPBOARD
-v		selectionne avec le deplacement du curseur
-r		remplace une lettre (rs remplace la lettre par s)
-R		mode remplacement (esc pour sortir)
-5G		aller a la ligne 5
-:s/old/new	remplace la 1ere occurence de ancien par nouveau
-:%s/old/new	remplace toutes les occurences
-v puis :s/o/n	remplace la premiere occurence par ligne de la selection visuelle v
-v :s/o/n/g	remplace toutes les selections de chaque ligne
-v :s/o/n/gc	demande confirmation (y yes, n no, a all remaining, q quit, l last)
-:s/o/n/gi	i veut dire case insensitive
-:s/A\zsB\zeC/X	remplace ABC par AXC
-:s/A\zs[0-9]*\zeC/#\0@		remplace A865C par A#865@C, ou A123C par A#123@C
-q:		affiche les dernieres commandes
-: puis up	affiche les dernieres commandes
-:set number	ecrit les numeros de lignes
-==		rétablit la bonne indentation pour la ligne
-=G		rétablit la bonne indentation pour toute la page
-:set syntax=ON	active la coloration du texte
-:colo		active un systeme de coloration a choisir parmis :
- 		 -- darkblue -- blue -- default -- delek -- desert -- elflord --
-		 -- evening -- koehler -- morning -- murphy -- pablo --
-		 -- peachpuff -- ron -- shine -- slate -- torte -- zellner --
-		(pour le modifier de manniere permanente :
-		 - pour l'utilisateur courant: ouvrir ou creer le fichier ~.vimrc
-		   et ajouter dedans: colo "nom du jeu de couleur";
-		 - pour tous les utilisateurs: ouvrir le fichier /etc/vim/vimrc
-		   et y ajouter: colo "nom du jeu de couleur")
-:set tabstop=4		montre les tabulations (meme existantes) de longueur 4
-:set expandtab		en appuyant tab on rentre l'equivalent en espaces
-:set expandtab!		enleve le mode tab = espaces
-:set autoindent		copie l'indentation de la ligne precedente
-:source ~/.vimrc	actualise le fichier vimrc sans redémarrer vim
-command! Name %s//	a écrire dans le fichier ~/.vimrc, créer une fonction
-			Name (tjrs avec une majuscule) qui s'execute quand on
-			l'appel. => :command! Name %s/a/b <bar> %s/A/B <=> grace
-			<bar> on peut écrire plusieurs fonctions a la suite =>
-			:command! Name %s/a/b <bar>
-			\:%s/A/B <=> grace a \: on peut écrire sur plusieurs
-			lignes
-function! Test()	dans ~/.vimrc définit une fonction qui execute plusieurs
-	command1	commandes. Il faut les appeler avec :exec Test(), le ! est
-	command2	tres important pour que la fonction se réecrive a chaque
-endfunction		fois, sinon conflit
+/MODE INSERTION/
+**i** mode insertion (écrire du texte)
+**o** mode insertion a la ligne
+**3iTEXT** ecrira trois fois TEXT
+**ctrl r** * colle depuis le clipboard en mode insertion
+
+/COMMANDES/
+**:w** enregistrer
+**:q** quitter
+**:wq** ou **ZZ** enregister et quitter
+**:q!** force a quitter
+**:** mode commande
+**:%y+** copie toutes les lignes DANS LE CLIPBOARD
+**:set paste** copier sans les effets des tabulations
+**: up** affiche les dernieres commandes
+**:set number** ecrit les numeros de lignes
+**:set syntax=ON** active la coloration du texte
+**:set tabstop=4** montre les tabulations (meme existantes) de longueur 4
+**:set expandtab** en appuyant tab on rentre l'equivalent en espaces
+**:set expandtab!** enleve le mode tab = espaces
+**:set autoindent** copie l'indentation de la ligne precedente
+**:source ~/.vimrc** actualise le fichier vimrc sans redémarrer vim
+**:colo** active un systeme de coloration a choisir parmis :
+			-- darkblue -- blue -- default -- delek -- desert -- elflord --
+			-- evening -- koehler -- morning -- murphy -- pablo --
+			-- peachpuff -- ron -- shine -- slate -- torte -- zellner --
+			(pour le modifier de manniere permanente :
+			- pour l'utilisateur courant: ouvrir ou creer le fichier ~.vimrc
+			et ajouter dedans: colo "nom du jeu de couleur";
+			- pour tous les utilisateurs: ouvrir le fichier /etc/vim/vimrc
+			et y ajouter: colo "nom du jeu de couleur")
+
+/MODE VISUEL/
+**v** mode visuel, selectionne avec le deplacement du curseur
+**v** **:s/o/n** remplace la premiere occurence par ligne en mode visuelle 
+**v :s/o/n/g** remplace toutes les selections de chaque ligne
+**v :s/o/n/gc** demande confirmation (y:yes, n:no, a:all remaining, q:quit, l:last)
+
+/MODE REMPLACEMENT/
+**R** mode remplacement (esc pour sortir)
+
+/MODE VISUAL BLOCK/
+**ctrl v** passe en mode remplacement
+
+/MODE INTERACTIF/
+**esc** quitte le mode insertion pour rentrer en mode interactif
+**x** supprime une lettre
+**r** remplace une lettre (rs remplace la lettre par s)
+**u** annuler
+**0** et **$** debut et fin de ligne
+**gg** et **G** aller a la premiere et derniere ligne
+**w** avancer le curseur au debut du mot suivant
+**b** reculer le curseur au debut du mot actuel
+**e** avancer le curseur a la fin du mot actuel
+**5G** aller a la ligne 5
+**g,** va a la position du curseur avant la derniere modification
+**ctrl r** refaire
+**ctrl n** auto-completion
+**dd** coupe une ligne
+**dw** coupe du curseur a la fin du mot
+**diw** coupe le "inner" mot
+**bde** pareil (begining delete end)
+**bdw** pareil mais en mangeant en plus l'espace en trop avec le mot suivant
+**d0** coupe du curseur jusqu'au debut de ligne
+**d$** coupe du curseur jusqu'a la fin de ligne
+**yy** copie la ligne
+**p** colle une ligne
+**.** repete la derniere commande
+**"ayy** copie la ligne dans le buffer a
+**"ap** colle la ligne du buffer a
+**gUU** passe la ligne en uppercase
+**guu** passe la ligne en lowercase
+**bgUw** change le mot en uppercase
+**~** change casse du caractere sous le cursor
+* va a la prochaine occurence du mot sous le curseur
+**q:** affiche les dernieres commandes
+**==** rétablit la bonne indentation pour la ligne
+**=G** rétablit la bonne indentation pour toute la page
+
+/REMPLACER/
+**:s/old/new** remplace la 1ere occurence de ancien par nouveau
+**:%s/old/new** remplace toutes les occurences
+**:s/o/n/gi** i veut dire case insensitive
+**:s/A\zsB\zeC/X** remplace ABC par AXC
+**:s/A\zs[0-9]** * **\zeC/#\0@** remplace A865C par A#865@C, ou A123C par A#123@C
+replacement :	**/old** va a la premiere prochaine occurence de 'old'
+							**n** va a la prochaine occurence
+							**:s//new** remplace 'old' par 'new'
+							**N** va a la precedente occurence
+							**&** repete la substitution
+							**u** annule la deniere substitution
+													etc...
+replacement2:	**vim old %** va a la toute premiere occurence de 'old'
+							**:s/old/new** remplace 'old' par 'new'
+							**:cn** va a la prochaine occurence
+							**&** repete la substitution
+							**:p** va a la precedente occurence
+							**u** annule la derniere sunstitution
+													etc...
+
+**command! Name %s//** a écrire dans le fichier ~/.vimrc, créer une fonction
+			**Name** (tjrs avec une majuscule) qui s'execute quand on
+			l'appel. => **:command! Name %s/a/b <bar> %s/A/B** <=> grace à
+			<bar> on peut écrire plusieurs fonctions a la suite
+**function! Test()** dans ~/.vimrc définit une fonction qui execute plusieurs
+			commandes. Il faut les appeler avec :exec Test(), le ! est
+			tres important pour que la fonction se réecrive a chaque
+			fois, sinon conflit
+
+**ctrl v** mode visual block
+			1-mettre le curseur au debut d'un ligne a commenter
+			2-passer en visual block mode
+			3-avec les fleches descendre jusqu'a la derniere ligne
+			4-appuyer sur shift+i pour passer en mode insertion
+			5-inserer le.s signe.s de commentaire (par exemple: //)
+			6-appuyer sur esc (ttes les lignes vont se commenter)
