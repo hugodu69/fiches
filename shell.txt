@@ -6,30 +6,6 @@
 **mkdir file{1..10}** creer 10 dossiers nommés de file1 à file10
 **pwd** print working directory
 
-**screen** sudo apt-get install screen pour avoir plusieurs terminals
-		**ctrl a |** split vertically
-		**ctrl a S** split horizontally
-		**ctrl a Q** unsplit all
-		**ctrl a X** close current pane
-		**ctrl a K** kill current pane
-		**ctrl a \** kill all sessions
-		**ctrl a d** get out of screen without killing it then run: screen -r to recover session
-		**ctrl a tab** switch from one window to another
-		**ctrl a c** start new terminal (in the new window)
-		**ctrl a space** next terminal
-		**ctrl a backspace** previous terminal
-		**ctrl a ctrl a** flip flop between to terminal
-		**ctrl a "** switch between terminal with a list
-		**ctrl a A** rename
-		to configure actions when launch :
-				**vim ~/.screenrc ** go to or create file screenrc, then write inside:
-				**startup_message off** avoid message at start
-				**chdir -directorie-** change the working directorie
-				**screen -t -name- -action-** start a windows with a name and execute action (for example: screen -t shell vim /Bureau/fiche/chell.txt)
-				**split -v** split vertically
-				**focus** focus on next screen
-		**ctr a esc** go in scroll mode (press esc again to axit)
-
 **pdftotext** transforme un pdf en un fichier texte
 **^** designe le debut d'une ligne
 * n'importe quel caractere autant de fois que possible

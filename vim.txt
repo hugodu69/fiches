@@ -20,6 +20,12 @@
 **:set expandtab!** enleve le mode tab = espaces
 **:set autoindent** copie l'indentation de la ligne precedente
 **:source ~/.vimrc** actualise le fichier vimrc sans redémarrer vim
+**:sav newname** save as with a new name
+	**:!rm oldname** or **:!rm <ctr r>#** to delete the old copy
+**:sp** split windows (**<ctr w arrow>** to navigate)
+**:vsp** split verivally
+**:sp filename** open a new or already existing filename in split mode
+**:sp %:h/filename** open new file in the same directory (**%** refers to the current directory, **:h** current directory minus file name and slash)
 **:colo** active un systeme de coloration a choisir parmis :
 			-- darkblue -- blue -- default -- delek -- desert -- elflord --
 			-- evening -- koehler -- morning -- murphy -- pablo --
@@ -41,6 +47,12 @@
 
 /MODE VISUAL BLOCK/
 **ctrl v** passe en mode remplacement
+			1-mettre le curseur au debut d'un ligne a commenter
+			2-passer en visual block mode
+			3-avec les fleches descendre jusqu'a la derniere ligne
+			4-appuyer sur shift+i pour passer en mode insertion
+			5-inserer le.s signe.s de commentaire (par exemple: //)
+			6-appuyer sur esc (ttes les lignes vont se commenter)
 
 /MODE INTERACTIF/
 **esc** quitte le mode insertion pour rentrer en mode interactif
@@ -107,10 +119,4 @@ replacement2:	**vim old %** va a la toute premiere occurence de 'old'
 			tres important pour que la fonction se réecrive a chaque
 			fois, sinon conflit
 
-**ctrl v** mode visual block
-			1-mettre le curseur au debut d'un ligne a commenter
-			2-passer en visual block mode
-			3-avec les fleches descendre jusqu'a la derniere ligne
-			4-appuyer sur shift+i pour passer en mode insertion
-			5-inserer le.s signe.s de commentaire (par exemple: //)
-			6-appuyer sur esc (ttes les lignes vont se commenter)
+
