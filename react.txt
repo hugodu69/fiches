@@ -1,0 +1,3 @@
+**first time** npm install -g create-react-app
+**otherwise** create-react-app name_folder
+**then** npm start
